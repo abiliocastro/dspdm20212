@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Trabalho1</string>
+    <string name="txtToggleButton">1 - Toggle Button</string>
+    <string name="txtViewEditText">2 - Edit Text</string>
+    <string name="btnEditText">VER</string>
+    <string name="hintEditText">Digite algo caba</string>
+    <string name="txtViewAutoC">4 - Autocomplete</string>
+    <string name="hintTxtAutocomple">Escreva começando com A</string>
+    <string name="textViewSpinner">5 - Spinner</string>
+    <string name="txtViewRadioButton">6 - Radio Button</string>
+    <string name="txtViewQuestionRB">Escolha uma opção mah</string>
+    <string name="rbQuestion1">Rapadura</string>
+    <string name="rbQuestion2">Tapioca</string>
+    <string name="rbQuestion3">Canjica</string>
+    <string name="rbQuestion4">Pamonha</string>
+    <string name="btnTentar">TENTAR</string>
+</resources>
