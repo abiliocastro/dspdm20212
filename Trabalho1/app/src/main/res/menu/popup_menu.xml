@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/rachel"
+        android:title="@string/popMenuRachel"/>
+
+    <item
+        android:id="@+id/jose"
+        android:title="@string/popMenuJose"/>
+
+    <item
+        android:id="@+id/chico"
+        android:title="@string/popMenuChico"/>
+
+</menu>

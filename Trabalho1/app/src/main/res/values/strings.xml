@@ -14,4 +14,36 @@
     <string name="rbQuestion3">Canjica</string>
     <string name="rbQuestion4">Pamonha</string>
     <string name="btnTentar">TENTAR</string>
+    <string name="redMenuTitle">Encarnado</string>
+    <string name="greenMenuTitle">Verde</string>
+    <string name="blueMenuTitle">Azul</string>
+    <string name="btnPopupMenu">Show Popup Menu</string>
+    <string name="popMenuRachel">Rachel de Queiroz</string>
+    <string name="popMenuJose">José de Alencar</string>
+    <string name="popMenuChico">Chico Anísio</string>
+    <string name="txtViewPopupMenu">8 e 9 - Popup Menu</string>
+    <string name="txtViewLongClick">10 - Clique Longo</string>
+    <string name="btnLongClick">Clique Longo</string>
+    <string name="txtViewImgFundo">11 - Imagem de Fundo</string>
+    <string name="txtViewNavActivities">12 - Navegaçao Entre Activities</string>
+    <string name="btnGoSecondScreen">IR PARA SEGUNDA TELA</string>
+    <string name="txtViewSecondScreen">AQUI EH A SEGUNDA TELA VIU MAH</string>
+    <string name="btnBackToMain">VOLTAR</string>
+    <string name="title_activity_tabed">TabedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="txtViewMultiTabs">13 - Activity com Multiplas Tabs</string>
+    <string name="btnGoMultiTabs">IR PARA ACTIVITY COM MULTIPLAS TABS</string>
+    <string name="txtViewListView">14 - List View</string>
+    <string name="txtViewListViewAdapter">15 - List View With Array Adapter</string>
+    <string-array name="sports_array">
+        <item>Shuttle Badminton</item>
+        <item>Tennis</item>
+        <item>FootBall</item>
+        <item>Basket Ball</item>
+        <item>Table Tennis</item>
+        <item>Chess</item>
+        <item>Hockey</item>
+    </string-array>
 </resources>
