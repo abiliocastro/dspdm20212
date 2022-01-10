@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Trabalho3.1</string>
+    <string name="etEditHint">Insira o ID</string>
+    <string name="btnEdit">Editar</string>
+    <string name="btnAdd">Adicionar</string>
+    <string name="tv_idItem">ID</string>
+    <string name="tv_TitleItem">Title</string>
+    <string name="tv_NumOfPagesItem">300</string>
+    <string name="defaultTvInfo">Adicionando novo livro</string>
+    <string name="tvInfoEdit">Editando livro</string>
+    <string name="etHintId">ID</string>
+    <string name="etHintTitle">Título</string>
+    <string name="etHintNumOfPages">Número de páginas</string>
+    <string name="btnActionDefault">ADICIONAR</string>
+    <string name="btnActionEdit">EDITAR</string>
+    <string name="btnCancelar">CANCELAR</string>
+</resources>
