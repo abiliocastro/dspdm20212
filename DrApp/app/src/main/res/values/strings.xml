@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DrApp</string>
+    <string name="emailEt">Email</string>
+    <string name="passwordEt">Senha</string>
+    <string name="passwordConfirmationEt">Confirmação de Senha</string>
+    <string name="entrarBtn">ENTRAR</string>
+    <string name="pacienteCadastroTv"><u>Quero me cadastrar como paciente</u></string>
+    <string name="medicoCadastroTv"><u>Sou médico e quero me cadastrar</u></string>
+    <string name="titleCadastroPaciente">Cadastro de Paciente</string>
+    <string name="nome">Nome</string>
+    <string name="cadastrar">Cadastrar</string>
+</resources>
