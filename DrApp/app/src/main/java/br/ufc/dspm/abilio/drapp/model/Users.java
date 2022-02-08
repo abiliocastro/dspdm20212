@@ -1,12 +1,23 @@
 package br.ufc.dspm.abilio.drapp.model;
 
-public class Users {
+import java.io.Serializable;
+
+public class Users implements Serializable {
     private String username;
     private String password;
+    private String _class;
 
     public Users(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public String get_class() {
+        return _class;
+    }
+
+    public void set_class(String _class) {
+        this._class = _class;
     }
 
     public String getUsername() {

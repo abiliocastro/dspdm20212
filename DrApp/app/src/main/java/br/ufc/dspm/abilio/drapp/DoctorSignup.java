@@ -2,23 +2,23 @@ package br.ufc.dspm.abilio.drapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
-
-import br.ufc.dspm.abilio.drapp.model.Patient;
+import br.ufc.dspm.abilio.drapp.model.Doctor;
 import br.ufc.dspm.abilio.drapp.model.Result;
 import br.ufc.dspm.abilio.drapp.model.Users;
 import br.ufc.dspm.abilio.drapp.repository.UsersRepository;
 
-public class PatientSignup extends AppCompatActivity {
+public class DoctorSignup extends AppCompatActivity {
 
     Button btnCadastrar;
     EditText etNome;
+    EditText etEspecialidade;
     EditText etEmail;
     EditText etSenha;
     EditText etConfirmarSenha;
@@ -28,7 +28,7 @@ public class PatientSignup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_signup);
+        setContentView(R.layout.activity_doctor_singup);
 
         AppContainer appContainer = ((MyApplication) getApplication()).appContainer;
         usersRepository = appContainer.usersRepository;
@@ -37,35 +37,39 @@ public class PatientSignup extends AppCompatActivity {
     }
 
     private void setCadastrarAction() {
-        btnCadastrar = findViewById(R.id.btnCadastrarPaciente);
-        etNome = findViewById(R.id.etNomePaciente);
-        etEmail = findViewById(R.id.etEmailPaciente);
-        etSenha = findViewById(R.id.etSenhaCadastroPaciente);
-        etConfirmarSenha = findViewById(R.id.etConfirmarSenhaCadastroPaciente);
+        btnCadastrar = findViewById(R.id.btnCadastrarMedico);
+        etNome = findViewById(R.id.etNomeMedico);
+        etEspecialidade = findViewById(R.id.etEspecialidadeMedico);
+        etEmail = findViewById(R.id.etEmailMedico);
+        etSenha = findViewById(R.id.etSenhaCadastroMedico);
+        etConfirmarSenha = findViewById(R.id.etConfirmarSenhaCadastroMedico);
 
         btnCadastrar.setOnClickListener(v -> {
             String nome = etNome.getText().toString();
+            String especialidade = etEspecialidade.getText().toString();
             String email = etEmail.getText().toString();
             String password = etSenha.getText().toString();
             String passwordConfirmation = etConfirmarSenha.getText().toString();
-            if(nome.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirmation.isEmpty()) {
-                Toast.makeText(PatientSignup.this, "por favor\n preencha todos os campos", Toast.LENGTH_SHORT).show();
+            if(nome.isEmpty() || especialidade.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirmation.isEmpty()) {
+                Toast.makeText(DoctorSignup.this, "por favor\n preencha todos os campos", Toast.LENGTH_SHORT).show();
                 return;
             } else if(!password.equals(passwordConfirmation)) {
-                Toast.makeText(PatientSignup.this, "senha e confirmação de senha\n não conferem!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorSignup.this, "senha e confirmação de senha\n não conferem!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            insertPatientRequest(new Patient(nome, email, password));
+            insertDoctorRequest(new Doctor(nome, especialidade, email, password));
         });
     }
 
-    private void insertPatientRequest(Patient patient) {
-        usersRepository.makeInsertPatientRequest(patient, result -> {
+    private void insertDoctorRequest(Doctor doctor) {
+        usersRepository.makeInsertDoctorRequest(doctor, result -> {
             if(result instanceof Result.Success) {
-                Toast.makeText(PatientSignup.this, "usuário adicionado com sucesso!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, HomeActivity.class);
+                startActivity(intent);
+                finish();
                 return;
             }
-            Toast.makeText(PatientSignup.this, "erro ao adicionar usuário", Toast.LENGTH_SHORT).show();
+            Toast.makeText(DoctorSignup.this, "erro ao adicionar usuário", Toast.LENGTH_SHORT).show();
             Log.e("erro:", ((Result.Error<Users>) result).exception.getMessage());
         });
     }

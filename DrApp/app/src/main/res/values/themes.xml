@@ -29,4 +29,13 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">10dp</item>
     </style>
+
+    <style name="Theme.DrApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DrApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DrApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
