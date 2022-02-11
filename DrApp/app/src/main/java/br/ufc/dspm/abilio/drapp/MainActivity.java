@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.ufc.dspm.abilio.drapp.model.Doctor;
+import br.ufc.dspm.abilio.drapp.model.Patient;
 import br.ufc.dspm.abilio.drapp.model.Result;
 import br.ufc.dspm.abilio.drapp.model.Users;
 import br.ufc.dspm.abilio.drapp.repository.UsersRepository;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etPassword;
     Button loginBtn;
 
+    AppContainer appContainer;
+
     UsersRepository usersRepository;
 
     @Override
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AppContainer appContainer = ((MyApplication) getApplication()).appContainer;
+        appContainer = ((MyApplication) getApplication()).appContainer;
         usersRepository = appContainer.usersRepository;
 
         setLoginAction();
@@ -55,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("user", user);
                     if(user.get_class().equals("com.drapp.drappbackend.model.Doctor")) {
                         intent.putExtra("userType", "doctor");
+                        appContainer.user = new Doctor(null, null, user.getUsername(), user.getPassword());
                     } else {
                         intent.putExtra("userType", "patient");
+                        appContainer.user = new Patient(null, user.getUsername(), user.getPassword());
                     }
                     startActivity(intent);
                     finish();

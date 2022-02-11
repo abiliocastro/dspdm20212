@@ -23,4 +23,5 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_patient_main">PatientMain</string>
+    <string name="semPacientes">Você ainda não possui pacientes</string>
 </resources>

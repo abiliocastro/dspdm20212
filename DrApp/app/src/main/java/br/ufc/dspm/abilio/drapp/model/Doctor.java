@@ -1,6 +1,8 @@
 package br.ufc.dspm.abilio.drapp.model;
 
-public class Doctor extends Users {
+import java.io.Serializable;
+
+public class Doctor extends Users implements Serializable {
     private String nome;
     private String especialidade;
 

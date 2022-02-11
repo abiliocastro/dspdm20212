@@ -2,6 +2,7 @@ package br.ufc.dspm.abilio.drapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -24,13 +25,14 @@ public class PatientSignup extends AppCompatActivity {
     EditText etConfirmarSenha;
 
     UsersRepository usersRepository;
+    AppContainer appContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_signup);
 
-        AppContainer appContainer = ((MyApplication) getApplication()).appContainer;
+        appContainer = ((MyApplication) getApplication()).appContainer;
         usersRepository = appContainer.usersRepository;
 
         setCadastrarAction();
@@ -62,7 +64,12 @@ public class PatientSignup extends AppCompatActivity {
     private void insertPatientRequest(Patient patient) {
         usersRepository.makeInsertPatientRequest(patient, result -> {
             if(result instanceof Result.Success) {
-                Toast.makeText(PatientSignup.this, "usuário adicionado com sucesso!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, HomeActivity.class);
+                intent.putExtra("user", patient);
+                intent.putExtra("userType", "patient");
+                appContainer.user = patient;
+                startActivity(intent);
+                finishAffinity();
                 return;
             }
             Toast.makeText(PatientSignup.this, "erro ao adicionar usuário", Toast.LENGTH_SHORT).show();

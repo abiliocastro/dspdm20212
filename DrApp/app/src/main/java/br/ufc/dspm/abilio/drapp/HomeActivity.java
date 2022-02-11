@@ -12,6 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,17 +21,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.ufc.dspm.abilio.drapp.model.Doctor;
 import br.ufc.dspm.abilio.drapp.model.Patient;
 import br.ufc.dspm.abilio.drapp.model.Result;
 import br.ufc.dspm.abilio.drapp.model.Users;
+import br.ufc.dspm.abilio.drapp.repository.DoctorRepository;
 import br.ufc.dspm.abilio.drapp.repository.UsersRepository;
+import br.ufc.dspm.abilio.drapp.ui.home.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
     private UsersRepository usersRepository;
+    private DoctorRepository doctorRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +68,8 @@ public class HomeActivity extends AppCompatActivity {
         AppContainer appContainer = ((MyApplication) getApplication()).appContainer;
         usersRepository = appContainer.usersRepository;
 
+        doctorRepository = appContainer.doctorRepository;
+
         Intent intent = getIntent();
         String userType = (String) intent.getSerializableExtra("userType");
         Users user = (Users) intent.getSerializableExtra("user");
@@ -72,6 +81,7 @@ public class HomeActivity extends AppCompatActivity {
                     TextView tvHeadetSubtitle = navigationView.findViewById(R.id.tvHeaderMainSubtitle);
                     tvHeaderTitle.setText(patient.getNome());
                     tvHeadetSubtitle.setText(patient.getUsername());
+                    appContainer.user = patient;
                 } else {
                     Toast.makeText(HomeActivity.this, "erro ao carregar informações do usuário", Toast.LENGTH_SHORT).show();
                     Log.e("erro:", ((Result.Error<Users>) result).exception.getMessage());
@@ -85,6 +95,7 @@ public class HomeActivity extends AppCompatActivity {
                     TextView tvHeadetSubtitle = navigationView.findViewById(R.id.tvHeaderMainSubtitle);
                     tvHeaderTitle.setText(doctor.getNome());
                     tvHeadetSubtitle.setText(doctor.getEspecialidade());
+                    appContainer.user = doctor;
                 } else {
                     Toast.makeText(HomeActivity.this, "erro ao carregar informações do usuário", Toast.LENGTH_SHORT).show();
                     Log.e("erro:", ((Result.Error<Users>) result).exception.getMessage());

@@ -24,13 +24,14 @@ public class DoctorSignup extends AppCompatActivity {
     EditText etConfirmarSenha;
 
     UsersRepository usersRepository;
+    AppContainer appContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_singup);
 
-        AppContainer appContainer = ((MyApplication) getApplication()).appContainer;
+        appContainer = ((MyApplication) getApplication()).appContainer;
         usersRepository = appContainer.usersRepository;
 
         setCadastrarAction();
@@ -65,8 +66,11 @@ public class DoctorSignup extends AppCompatActivity {
         usersRepository.makeInsertDoctorRequest(doctor, result -> {
             if(result instanceof Result.Success) {
                 Intent intent = new Intent(this, HomeActivity.class);
+                intent.putExtra("user", doctor);
+                intent.putExtra("userType", "doctor");
+                appContainer.user = doctor;
                 startActivity(intent);
-                finish();
+                finishAffinity();
                 return;
             }
             Toast.makeText(DoctorSignup.this, "erro ao adicionar usuário", Toast.LENGTH_SHORT).show();

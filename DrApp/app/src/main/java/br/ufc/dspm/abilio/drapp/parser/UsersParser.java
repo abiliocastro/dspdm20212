@@ -2,6 +2,9 @@ package br.ufc.dspm.abilio.drapp.parser;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import br.ufc.dspm.abilio.drapp.model.Doctor;
 import br.ufc.dspm.abilio.drapp.model.Patient;
@@ -29,5 +32,11 @@ public class UsersParser extends Parser {
         InputStreamReader isr = new InputStreamReader(inputStream);
         Doctor doctor = gson.fromJson(isr, Doctor.class);
         return doctor;
+    }
+
+    public List<Doctor> parseAllDoctors(InputStream inputStream) {
+        InputStreamReader isr = new InputStreamReader(inputStream);
+        Doctor[] doctors = gson.fromJson(isr, Doctor[].class);
+        return new ArrayList<>(Arrays.asList(doctors));
     }
 }
