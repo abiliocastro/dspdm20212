@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ProvaFinal</string>
+    <string name="idEditTextHint">Insira o ID</string>
+    <string name="editarButton">Editar</string>
+    <string name="adicionarButton">Adicionar</string>
+    <string name="idTextView">ID</string>
+    <string name="tituloTextView">Título</string>
+    <string name="autorTextView">Autor</string>
+    <string name="editoraTextView">Editora</string>
+    <string name="anoPublicacaoTextView">Ano</string>
+    <string name="isbnTextView">isbn</string>
+    <string name="infoAdicionarTextView">Adionando novo livro</string>
+    <string name="infoEditarTextView">Editando livro existente</string>
+    <string name="idEditTextDefault">ID</string>
+    <string name="tituloEditTextDefault">Titulo</string>
+    <string name="autorEditTextDefault">Autor</string>
+    <string name="editoraEditTextDefault">Editora</string>
+    <string name="anoPublicacaoEditTextDefault">Ano de Publicação</string>
+    <string name="isbnEditTextDefault">ISBN</string>
+    <string name="actionAdicionarButton">Adicionar</string>
+    <string name="actionEditarButton">Editar</string>
+    <string name="cancelarButton">Cancelar</string>
+</resources>
